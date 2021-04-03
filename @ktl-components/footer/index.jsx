@@ -1,3 +1,3 @@
-export default function () {
-    return <a>222</a>;
+export default function (props) {
+    return <a {...props}>222</a>;
 };

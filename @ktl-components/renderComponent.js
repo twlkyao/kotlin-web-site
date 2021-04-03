@@ -5,4 +5,4 @@ const babelRc = Object.assign({}, require('./.babelrc.json'), {
 });
 
 require('@babel/register')(babelRc);
-require('./renderComponent')['default']();
+require('./renderComponent.mjs')['default']();

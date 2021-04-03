@@ -34,7 +34,8 @@ class KTLComponentExtension(Extension):
 
     def _render(self, name, props):
         nodejs = subprocess.Popen(
-            "node @ktl-components/prepare.mjs %s" % name,
+            "node renderComponent.js '%s' '%s'" % (name, dumps(props)),
+            cwd="@ktl-components",
             shell=True,
             stdin=subprocess.PIPE,
             stdout=subprocess.PIPE,
