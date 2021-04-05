@@ -1,0 +1,19 @@
+.product, .version,
+.product:any-link, .version:any-link {
+    text-decoration: none;
+}
+
+.product {
+    text-indent: -9999ex;
+    background: url("./Brand.svg") no-repeat center center;
+    min-width: 90px;
+    height: 22px;
+}
+
+.version {
+    transition: .3s ease-out;
+}
+
+.version:hover {
+    color: #fff;
+}

@@ -19,7 +19,8 @@
 <!-- End Google Tag Manager (noscript) -->
 
 <div class="global-layout">
-    {% include 'inc/header.html' %}
+{#    {% include 'inc/header.html' %}#}
+    {% ktl_component "header" %}
     {% block page_outer_content %}
         <div class="g-layout global-content">
             {% include 'inc/nav/docs-nav.html' %}
