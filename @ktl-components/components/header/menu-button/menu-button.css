@@ -1,0 +1,16 @@
+.button {
+    display: block;
+    background: transparent url("./menu.svg") no-repeat center;
+    text-indent: -9999ex;
+
+    appearance: none;
+    border: 0 none transparent;
+    outline: 0 none transparent;
+
+    cursor: pointer;
+
+    height: 24px;
+    width: 24px;
+
+    margin-left: 16px;
+}

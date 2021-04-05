@@ -33,21 +33,20 @@ class KTLComponentExtension(Extension):
         return nodes.Output([result], lineno=lineno)
 
     def _render(self, name, props):
+        props_json = dumps(props)
         nodejs = subprocess.Popen(
-            "node compile.js '%s' '%s'" % (name, dumps(props)),
+            [ "node", "compile.js", name, props_json ],
             cwd="@ktl-components",
-            shell=True,
             stdin=subprocess.PIPE,
             stdout=subprocess.PIPE,
             stderr=subprocess.PIPE
         )
 
-        props_json = dumps(props).encode("utf8")
-        stdout_data, stderr_data = nodejs.communicate(input=props_json)
+        stdout_data, stderr_data = nodejs.communicate()
         result = stdout_data.decode("utf8", errors='ignore')
 
         if nodejs.returncode != 0:
-            input_hash = hashlib.sha1(props_json).hexdigest()
+            input_hash = hashlib.sha1(props_json.encode("utf8")).hexdigest()
             print(" ##teamcity[buildProblem description='ktl-components failed!' identity='%s'] " % input_hash)
             result = self.error_template % stderr_data
 

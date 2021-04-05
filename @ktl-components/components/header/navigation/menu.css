@@ -1,0 +1,21 @@
+.menu {
+    display: flex;
+    flex: 1;
+    justify-content: flex-end;
+}
+
+.item, .item:any-link {
+    color: rgba(255, 255, 255, .75);
+    font-family: Inter, Arial, sans-serif;
+    font-size: 16px;
+    line-height: 24px;
+
+    margin-right: 32px;
+    padding: 21px 0 19px;
+
+    text-decoration: none;
+}
+
+.item:hover {
+    color: #fff;
+}

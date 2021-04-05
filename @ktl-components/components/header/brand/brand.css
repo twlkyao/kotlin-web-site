@@ -1,16 +1,26 @@
+.wrap {
+    display: flex;
+    padding: 12px 0;
+}
+
 .product, .version,
 .product:any-link, .version:any-link {
+    color: rgba(255, 255, 255, .75);
     text-decoration: none;
 }
 
 .product {
-    text-indent: -9999ex;
+    display: block;
     background: url("./Brand.svg") no-repeat center center;
-    min-width: 90px;
-    height: 22px;
+    text-indent: -9999ex;
+    width: 91px;
+    height: 25px;
 }
 
 .version {
+    font-family: Inter, Arial, sans-serif;
+    font-size: 13px;
+    line-height: 16px;
     transition: .3s ease-out;
 }
 

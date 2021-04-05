@@ -1,4 +1,27 @@
 .wrap {
     background: #27282c;
     color: rgba(255, 255, 255, .75);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 20px 0 32px;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+}
+
+.controls {
+    display: flex;
+}
+
+@media (min-width: 700px) {
+    .menu {
+        display: none;
+    }
+}
+
+@media (max-width: 700px) {
+    .nav {
+        display: none;
+    }
 }

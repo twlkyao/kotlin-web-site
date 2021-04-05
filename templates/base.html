@@ -12,6 +12,7 @@
 
     {% block styles %}{% endblock %}
     <link rel="stylesheet" href="{{ url_for('static', filename='common.css')|autoversion }}"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='components/header.css')|autoversion }}"/>
 </head>
 <body class="page_js_no">
 <!-- Google Tag Manager (noscript) -->
@@ -20,7 +21,7 @@
 
 <div class="global-layout">
 {#    {% include 'inc/header.html' %}#}
-    {% ktl_component "header" %}
+    {% ktl_component "header" releaseUrl=data.releases.latest.url version=data.releases.latest.version %}
     {% block page_outer_content %}
         <div class="g-layout global-content">
             {% include 'inc/nav/docs-nav.html' %}

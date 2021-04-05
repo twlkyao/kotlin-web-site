@@ -1,10 +1,10 @@
-import {product as cssBrandName, version as cssVersion} from './brand.css'
+import {product as cssBrandName, version as cssVersion, wrap as cssWrap} from './brand.css'
 
-export default function Logo({version, url}) {
+export default function Brand({version, url}) {
     return (
-        <div>
+        <div data-nosnippet="true" className={cssWrap}>
             <a className={cssBrandName} href="https://kotlinlang.org/">Kotlin</a>
-            <sup><a className={cssVersion} href={url} target="_blank">{version}</a></sup>
+            <a className={cssVersion} href={url} target="_blank">{version}</a>
         </div>
     );
 }
