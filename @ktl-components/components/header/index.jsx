@@ -1,7 +1,7 @@
 import Brand from './brand';
 import Navigation from './navigation';
 import SearchButton from './search-button';
-import MenuButton from './hamburger';
+import HamburgerMenu from './hamburger';
 
 import { wrap as cssHeader, nav as cssNav, controls as cssControls, menu as cssMenu } from './header.css'
 
@@ -60,15 +60,15 @@ const defaultData = [
     },
 ];
 
-export default function Header({ navigationData, releaseUrl, version }) {
+export default function Header({ navigationData, releaseUrl, version, onClick }) {
     const data = navigationData || defaultData;
 
     return <header className={cssHeader}>
         <Brand version={version} url={releaseUrl}/>
         <Navigation className={cssNav} data={data}/>
         <div className={cssControls}>
-            <SearchButton/>
-            <MenuButton className={cssMenu} data={data}/>
+            <SearchButton onClick={onClick}/>
+            <HamburgerMenu className={cssMenu} data={data}/>
         </div>
     </header>
 }

@@ -31,6 +31,9 @@ export default function createConfig(outputPath) {
                 commonjs2: 'react-dom',
             },
         },
+        stats: {
+            children: true,
+        },
         optimization: {
             minimizer: [
                 new CSSOWebpackPlugin(),
@@ -75,6 +78,14 @@ export default function createConfig(outputPath) {
                                 },
                             },
                         },
+                        {
+                            loader: "postcss-loader",
+                            options: {
+                                postcssOptions: {
+                                    plugins: [ "postcss-preset-env" ],
+                                },
+                            },
+                        }
                     ],
                 },
                 {

@@ -1,5 +1,5 @@
 .button {
-    display: block;
+    display: inline-block;
     background: transparent url("./hamburger.svg") no-repeat center;
     text-indent: -9999ex;
 

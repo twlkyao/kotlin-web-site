@@ -1,9 +1,10 @@
-import {Fragment} from 'react';
+import { Fragment } from 'react'
 import Button from './Button';
 import Link from '../Link';
 
 import {
-    item as cssItem, mobilePopup as cssMobilePopup, heading as cssHeading,
+    mobilePopup as cssMobilePopup,
+    item as cssItem, heading as cssHeading,
     subItem as cssSubItem, subHeading as cssSubHeading
 } from './hamburger.css';
 
@@ -21,12 +22,12 @@ function SubMenu({ data }) {
     );
 }
 
-function MenuPopup({data, ...props}) {
+function MenuPopup({ data, id }) {
     const list = data || [];
 
     return (
-        <nav>
-            <ul className={cssMobilePopup} {...props}>{
+        <nav id={id} className={cssMobilePopup}>
+            <ul>{
                 list.map(({items, ...item}, i) => (
                     <li key={i} className={cssItem}>
                         <Link {...item} className={cssHeading}/>

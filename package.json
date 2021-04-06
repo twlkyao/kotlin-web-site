@@ -57,6 +57,7 @@
   "devDependencies": {
     "glob": "7.1.1",
     "minimist": "1.2.3",
+    "preact-render-to-string": "5.1.19",
     "webpack-dev-server": "3.11.2"
   },
   "scripts": {
