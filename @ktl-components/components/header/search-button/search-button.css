@@ -12,3 +12,7 @@
     height: 24px;
     width: 24px;
 }
+
+.button--disabled {
+    visibility: hidden;
+}
