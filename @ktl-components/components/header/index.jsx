@@ -1,7 +1,7 @@
 import Brand from './brand';
 import Navigation from './navigation';
 import SearchButton from './search-button';
-import MenuButton from './menu-button';
+import MenuButton from './hamburger';
 
 import { wrap as cssHeader, nav as cssNav, controls as cssControls, menu as cssMenu } from './header.css'
 
@@ -37,11 +37,11 @@ const defaultData = [
         url: 'https://kotlinlang.org/docs/home.html',
         items: [
             {
-                children: 'Reference',
+                children: 'Kotlin',
                 url: "https://kotlinlang.org/docs/home.html",
             },
             {
-                children: 'KMM documentation',
+                children: 'KMM',
                 url: "https://kotlinlang.org/docs/mobile/home.html",
             },
         ],

@@ -1,0 +1,40 @@
+
+
+.item, .sub-item {
+    margin-top: 16px;
+}
+
+.item:first-of-type {
+    margin-top: 0;
+}
+
+.sub-item {
+    margin-left: 16px;
+}
+
+.heading, .heading:any-link {
+    font-family: Inter, Arial, sans-serif;
+    color: #fff;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 32px;
+    text-decoration: none;
+}
+
+.sub-heading, .sub-heading:any-link {
+    font-family: Inter, Arial, sans-serif;
+    font-size: 16px;
+    line-height: 24px;
+    color: rgba(255, 255, 255, .75);
+    text-decoration: none;
+}
+
+.sub-heading:hover {
+    color: #fff;
+}
+
+.mobile-popup {
+    display: none;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}

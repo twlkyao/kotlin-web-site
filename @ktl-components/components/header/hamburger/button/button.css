@@ -1,6 +1,6 @@
 .button {
     display: block;
-    background: transparent url("./menu.svg") no-repeat center;
+    background: transparent url("./hamburger.svg") no-repeat center;
     text-indent: -9999ex;
 
     appearance: none;
