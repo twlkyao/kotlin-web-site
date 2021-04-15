@@ -3,6 +3,9 @@
   "version": "0.0.0",
   "description": "kotlinlang.org site",
   "license": "Apache-2.0",
+  "browserslist": [
+    "defaults, not ie > 0, edge > 18"
+  ],
   "dependencies": {
     "@jetbrains/babel-preset-jetbrains": "^1.0.1",
     "aos": "2.1.1",

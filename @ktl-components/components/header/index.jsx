@@ -60,15 +60,17 @@ const defaultData = [
     },
 ];
 
-export default function Header({ navigationData, releaseUrl, version, onClick }) {
+export default function Header({ navigationData, releaseUrl, version, onClick, ...props }) {
     const data = navigationData || defaultData;
 
-    return <header className={cssHeader}>
-        <Brand version={version} url={releaseUrl}/>
-        <Navigation className={cssNav} data={data}/>
-        <div className={cssControls}>
-            <SearchButton onClick={onClick}/>
-            <HamburgerMenu className={cssMenu} data={data}/>
-        </div>
-    </header>
+    return (
+        <header {...props} className={cssHeader}>
+            <Brand version={version} url={releaseUrl}/>
+            <Navigation className={cssNav} data={data}/>
+            <div className={cssControls}>
+                <SearchButton onClick={onClick}/>
+                <HamburgerMenu className={cssMenu} data={data}/>
+            </div>
+        </header>
+    );
 }

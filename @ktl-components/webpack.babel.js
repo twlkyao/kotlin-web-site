@@ -1,9 +1,9 @@
-import path from "path";
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const svgToMiniDataURI = require("mini-svg-data-uri");
-const CSSOWebpackPlugin = require("csso-webpack-plugin").default;
-const TerserPlugin = require("terser-webpack-plugin");
-const babelRc = require("./.babelrc.json");
+import {resolve} from "path";
+import MiniCssExtractPlugin from "mini-css-extract-plugin";
+import svgToMiniDataURI from "mini-svg-data-uri";
+import CSSOWebpackPlugin from "csso-webpack-plugin";
+import TerserPlugin from "terser-webpack-plugin";
+import babelRc from "./.babelrc.json";
 
 export default function createConfig(outputPath) {
     return {
@@ -11,8 +11,7 @@ export default function createConfig(outputPath) {
             header: "./components/header",
         },
         output: {
-            path: outputPath || path.resolve(__dirname, "..", "_assets", "components"),
-            publicPath: '/_assets/',
+            path: outputPath || resolve(__dirname, './dist'),
             libraryTarget: "commonjs2",
             clean: true,
         },
@@ -49,7 +48,7 @@ export default function createConfig(outputPath) {
                     test: /\.(js|jsx|mjs)$/,
                     loader: "babel-loader",
                     type: "javascript/auto",
-                    exclude: path.resolve(__dirname, 'node_modules'),
+                    exclude: resolve(__dirname, 'node_modules'),
                     options: {...babelRc}
                 },
                 {

@@ -33,9 +33,12 @@ class KTLComponentExtension(Extension):
         return nodes.Output([result], lineno=lineno)
 
     def _render(self, name, props):
-        props_json = dumps(props)
+        props_render = {} if not props else props.copy()
+        props_render["data-ktl-type"] = name
+        props_json = dumps(props_render)
+
         nodejs = subprocess.Popen(
-            [ "node", "compile.js", name, props_json ],
+            ["node", "compile.js", name, props_json],
             cwd="@ktl-components",
             stdin=subprocess.PIPE,
             stdout=subprocess.PIPE,
@@ -50,4 +53,7 @@ class KTLComponentExtension(Extension):
             print(" ##teamcity[buildProblem description='ktl-components failed!' identity='%s'] " % input_hash)
             result = self.error_template % stderr_data
 
-        return Markup(result)
+        return Markup(
+            "<!-- %s -->%s"
+            % (props_json, result)
+        )
