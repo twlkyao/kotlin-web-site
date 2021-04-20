@@ -1,7 +1,8 @@
 import kotlinPlayground from 'kotlin-playground';
 import $ from 'jquery';
 import 'whatwg-fetch';
-import { h, hydrate } from 'preact'
+import { createElement } from 'react'
+import { hydrate } from 'react-dom'
 import '../com/search/search';
 import '../com/cities-banners';
 import GifPlayer from '../com/gif-player/gif-player';
@@ -102,8 +103,7 @@ function getPropsFromComment(node) {
 
 function initKTLComponentNode({ default: Component }, node) {
   const props = getPropsFromComment(node);
-  props.onClick = () => {debugger};
-  hydrate(h(Component, props), node);
+  hydrate(createElement(Component, props), node);
 }
 
 function initKTLComponents() {
