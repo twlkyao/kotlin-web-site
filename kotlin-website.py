@@ -386,7 +386,7 @@ def generate_redirect_pages():
                         url_list = url_from if isinstance(url_from, list) else [url_from]
 
                         for url in url_list:
-                            app.add_url_rule(url, url, view_func=RedirectTemplateView.as_view(url, url=url_to))
+                            app.add_url_rule(url, view_func=RedirectTemplateView.as_view(url, url=url_to))
 
                 except yaml.YAMLError as exc:
                     sys.stderr.write('Cant parse data file ' + file + ': ')
