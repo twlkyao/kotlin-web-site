@@ -12,6 +12,7 @@ import xmltodict
 import yaml
 from bs4 import BeautifulSoup
 from flask import Flask, render_template, Response, send_from_directory, request
+from flask.views import View
 from flask.helpers import url_for, send_file, make_response
 from flask_frozen import Freezer, walk_directory
 from hashlib import md5
@@ -358,8 +359,12 @@ def api_page():
             yield {'page_path': path.join(path.relpath(root, api_folder), file).replace(os.sep, '/')}
 
 
-def redirect_to(url_to):
-    return render_template('redirect.html', url=url_to)
+class RedirectTemplateView(View):
+    def __init__(self, url):
+        self.redirect_url = url
+
+    def dispatch_request(self):
+        return render_template('redirect.html', url=self.redirect_url)
 
 
 def generate_redirect_pages():
@@ -381,7 +386,7 @@ def generate_redirect_pages():
                         url_list = url_from if isinstance(url_from, list) else [url_from]
 
                         for url in url_list:
-                            app.add_url_rule(url, url, view_func=lambda: redirect_to(url_to))
+                            app.add_url_rule(url, url, view_func=RedirectTemplateView.as_view(url, url=url_to))
 
                 except yaml.YAMLError as exc:
                     sys.stderr.write('Cant parse data file ' + file + ': ')
